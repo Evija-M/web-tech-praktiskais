@@ -14,7 +14,8 @@ class AddFkToSongsTable extends Migration
     public function up()
     {
         Schema::table('songs', function (Blueprint $table) {
-            $table->foreignId('comment_id')->references('comment_id')->on('comments');
+            $table->foreignId('artist_id')->references('artist_id')->on('artists');
+            $table->foreignId('album_id')->references('album_id')->on('albums');
         });
     }
 

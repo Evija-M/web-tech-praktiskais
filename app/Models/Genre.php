@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Genre extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'genre_name',
+    ];
 
     //relaton with artist
     public function artist(){

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFkToArtistsTable extends Migration
+class AddFkToCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddFkToArtistsTable extends Migration
      */
     public function up()
     {
-        Schema::table('artists', function (Blueprint $table) {
+        Schema::table('comments', function (Blueprint $table) {
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('album_id')->references('album_id')->on('albums');
+            $table->foreignId('song_id')->references('song_id')->on('songs');
         });
     }
 
@@ -25,7 +27,7 @@ class AddFkToArtistsTable extends Migration
      */
     public function down()
     {
-        Schema::table('artists', function (Blueprint $table) {
+        Schema::table('comments', function (Blueprint $table) {
             //
         });
     }
