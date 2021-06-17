@@ -4,28 +4,25 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
-                @if ($albums->count() == 0)
-                    <div class="bd-example">{{ __('messages.There are no albums yet, go to artists and create the first one') }}</div>
-
+                @if ($genres->count() == 0)
+                    <div class="bd-example">{{ __('messages.There are no genres yet') }}</div>
                 @else
-                    
+                <div class="bd-example">{{ __('messages.Click on genre name to view artists') }}</div>
                 <div class="bd-example"><ul class="list-group">
-            @foreach ( $albums as $album )
-                    
-            <li class="list-group-item"><a href="{{url('albums', $album->id)}}" > 
-                {{ $album->album_name }} {{ $album->year }} {{ $album->design }} {{$album->id}}
-                
+            @foreach ( $genres as $genre )
+
+            <li class="list-group-item"><a href="{{url('artists')}}" > 
+                {{ $genre->genre_name }}
             </a></li>
             @endforeach
         </ul>
     </div>
-
             @endif
-                            
             </div>
         </div>
     </div>
 </div>
     
 @endsection
+
 

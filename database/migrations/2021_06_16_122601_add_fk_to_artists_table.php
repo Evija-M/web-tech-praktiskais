@@ -15,6 +15,7 @@ class AddFkToArtistsTable extends Migration
     {
         Schema::table('artists', function (Blueprint $table) {
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('genre_id')->references('genre_id')->on('genres');
         });
     }
 

@@ -15,8 +15,8 @@ class AddFkToCommentsTable extends Migration
     {
         Schema::table('comments', function (Blueprint $table) {
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('album_id')->references('album_id')->on('albums');
-            $table->foreignId('song_id')->references('song_id')->on('songs');
+            $table->foreignId('album_id')->references('id')->on('albums');
+            $table->foreignId('song_id')->references('id')->on('songs');
         });
     }
 

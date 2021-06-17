@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Artist;
+use App\Models\Album;
+use App\Models\Comment;
 
 class Song extends Model
 {

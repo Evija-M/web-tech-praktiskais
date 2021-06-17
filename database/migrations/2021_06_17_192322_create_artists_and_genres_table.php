@@ -14,8 +14,9 @@ class CreateArtistsAndGenresTable extends Migration
     public function up()
     {
         Schema::create('artists_and_genres', function (Blueprint $table) {
-            $table->foreignId('artist_id')->references('artist_id')->on('artists');
+            $table->foreignId('artist_id')->references('id')->on('artists');
             $table->foreignId('genre_id')->references('genre_id')->on('genres');
+
         });
     }
 

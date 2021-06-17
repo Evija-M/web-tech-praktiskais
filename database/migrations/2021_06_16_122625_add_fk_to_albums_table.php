@@ -14,7 +14,8 @@ class AddFkToAlbumsTable extends Migration
     public function up()
     {
         Schema::table('albums', function (Blueprint $table) {
-            $table->foreignId('artist_id')->references('artist_id')->on('artists');
+            $table->foreignId('artist_id')->references('id')->on('artists');
+            $table->foreignId('user_id')->references('id')->on('users');
         });
     }
 

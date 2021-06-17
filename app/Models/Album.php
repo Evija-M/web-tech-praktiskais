@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Artist;
+use App\Models\Song;
+use App\Models\Comment;
+use App\Models\User;
 
 class Album extends Model
 {
@@ -25,5 +29,9 @@ class Album extends Model
     //relation with comment
     public function comment(){
         return $this->hasMany(Comment::class);
+    }
+    //relation with user
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

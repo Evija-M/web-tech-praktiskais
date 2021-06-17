@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Artist;
+use App\Models\Comment;
+use App\Models\Album;
 
 class User extends Authenticatable
 {
@@ -51,4 +54,9 @@ class User extends Authenticatable
     public function comment(){
         return $this->hasMany(Comment::class);
     }
+
+    public function album(){
+        return $this->hasMany(Album::class);
+    }
 }
+//php artisan migrate --path=/app/database/migrations/my_migrations
