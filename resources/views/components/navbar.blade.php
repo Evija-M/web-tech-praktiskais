@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url('/') }}">
-        {{ config('app.name', 'Music site') }}
+      <a class="navbar-brand" href="{{ url('/') }}">Music website
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,7 +22,15 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="{{ url('genres')}}">{{ __('messages.Genres') }}</a>
           </li>
+          <li>
+
+            @if (Auth::user()->role == 1 )
+                  <a class="nav-link" aria-current="page" href="{{ url('users')}}">{{ __('messages.View users') }}</a>
+            @endif
+          </li>
         </ul>
+
+         
 
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
           <a href="{{ url('lang/lv') }}" class="ml-4 text-sm text-gray-700 underline">LV</a>

@@ -1,20 +1,20 @@
 @extends('layouts.app')
 @section('content')
-<form method="POST" action="{{ action([App\Http\Controllers\AlbumController::class, 'store']) }}">
+<form method="POST" action="{{ action([App\Http\Controllers\AlbumController::class, 'store']) }}" style="margin-left: 40px">
     @csrf
     <div class="mb-3">
       <label for="album_name" class="form-label">{{ __('messages.Album name') }}</label>
-      <input type="text" class="form-control" id="album_name" name="album_name" :value="old('album_name')" required autofocus>
+      <input type="text" class="form-control w-25" id="album_name" name="album_name" :value="old('album_name')" required autofocus>
     </div>
 
     <div class="mb-3">
         <label for="year" class="form-label">{{ __('messages.Year') }}</label>
-        <input type="number" class="form-control" id="year" name="year" :value="old('year')" required autofocus>
+        <input type="number" class="form-control w-25" id="year" name="year" :value="old('year')" required autofocus>
     </div>
 
     <div class="mb-3">
         <label for="design" class="form-label">{{ __('messages.Design') }}</label>
-        <input type="text" class="form-control" id="design" name="design" :value="old('design')" required autofocus>
+        <input type="text" class="form-control w-25" id="design" name="design" :value="old('design')" required autofocus>
     </div>
 
     <div class="mb-3">

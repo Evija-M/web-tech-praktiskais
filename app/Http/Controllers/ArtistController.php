@@ -35,7 +35,8 @@ class ArtistController extends Controller
         // return view('books',  compact('books'));
         // if($genre == null){
             $artists = Artist::orderBy('artist_name')->get();
-            return view('artists', compact('artists'));
+            $message = "";
+            return view('artists', compact('artists', 'message'));
         // }
         // else{
         //     $artists = Artist::where('genre_id', $genre)->get();
@@ -107,7 +108,9 @@ class ArtistController extends Controller
      */
     public function edit($artist_id)
     {
-        return view('edit_artist', compact('artist_id'));
+        $artist = Artist::where('id', '=', $artist_id)->first();
+        $genre = DB::table('artists_and_genres')->select('genre_id')->where('artist_id', '=', $artist_id)->first();
+        return view('edit_artist', compact('artist_id', 'artist', 'genre'));
     }
 
     /**
@@ -143,9 +146,25 @@ class ArtistController extends Controller
      */
     public function destroy($id)
     {
+        $artist = Artist::find($id);
+        $songs = Song::where('artist_id', '=', $id)->get();
+        $albums = Album::where('artist_id', '=', $id)->get();
+        DB::table('artists_and_genres')->where('artist_id', '=', $id)->delete();
+        foreach ($songs as $song) {
+            DB::table('comments')->where('song_id', '=', $song->id)->delete();
+        }
+
+        foreach ($albums as $album) {
+            DB::table('comments')->where('album_id', '=', $album->id)->delete();
+        }
+
+        foreach ($albums as $album) {
+            DB::table('album_ratings')->where('album_id', '=', $album->id)->delete();
+        }
+
         $songs = Song::where('artist_id', '=', $id)->delete();
         $albums = Album::where('artist_id', '=', $id)->delete();
-        $artist = Artist::find($id);
+
         $artist->delete();
 
         $artists = Artist::orderBy('artist_name')->get();

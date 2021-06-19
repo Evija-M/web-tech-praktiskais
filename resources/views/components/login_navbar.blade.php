@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Music site') }}
+            {{ __('messages.Music website') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -31,10 +31,15 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-              <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                <a href="{{ url('lang/lv') }}" class="ml-4 text-sm text-gray-700 underline">LV</a>
-                <a href="{{ url('lang/en') }}" class="ml-4 text-sm text-gray-700 underline">EN</a>
-            </div>
+              
+              <li>
+                  <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                      <a href="{{ url('lang/lv') }}" class="ml-4 text-sm text-gray-700 underline">LV</a>
+                      <a href="{{ url('lang/en') }}" class="ml-4 text-sm text-gray-700 underline">EN</a>
+                  </div>
+
+              </li>
+              
                 <!-- Authentication Links -->
                 
                         <li class="nav-item">

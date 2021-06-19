@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSongsTable extends Migration
+class CrateAlbumRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateSongsTable extends Migration
      */
     public function up()
     {
-        Schema::create('songs', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('title');
-            $table->timestamps();
+        Schema::create('album_ratings', function (Blueprint $table) {
+            $table->foreignId('album_id')->references('id')->on('albums');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->integer('rating');
+
         });
     }
 
@@ -27,6 +28,6 @@ class CreateSongsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('songs');
+        //
     }
 }

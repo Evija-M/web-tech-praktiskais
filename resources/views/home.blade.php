@@ -3,9 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-           <h1>Hello to the home page</h1>
-        </div>
+           <h1 class="display-1">{{ __('messages.This is the main page') }}</h1>
     </div>
 </div>
 @endsection
